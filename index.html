@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | NFT preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      @font-face {
+        font-family: "Outfit";
+        src: url("./font/Outfit/Outfit-VariableFont_wght.ttf") format(truetype);
+        font-display: swap;
+      }
+      :root {
+        --Soft-blue: hsl(215, 51%, 70%);
+        --Cyan: hsl(178, 100%, 50%);
+
+        --Very-dark-blue-main-BG: hsl(217, 54%, 11%);
+        --Very-dark-blue-card-BG: hsl(216, 50%, 16%);
+        --Very-dark-blue-line: hsl(215, 32%, 27%);
+        --White: hsl(0, 0%, 100%);
+      }
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        font-family: Outfit;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: hsl(217, 54%, 11%);
+      }
+      .card {
+        width: 350px;
+        padding: 25px;
+        border-radius: 20px;
+        background-color: hsl(216, 50%, 16%);
+
+        .pic {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          cursor: pointer;
+
+          img {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+          }
+
+          .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 300px; height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hsl(178, 100%, 50%, 0.5);
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            img {
+              width: 40px;  height: 40px;
+              opacity: 1;
+              transition: none;
+            }
+          }
+        }
+        .pic:hover .overlay {
+          opacity: 1;
+        }
+
+        .title {
+          color: hsl(0, 0%, 100%);
+          font-weight: 600;
+          font-size: 22px;
+          margin: 15px 0;
+          cursor: pointer;
+        }
+        .title:hover {
+          color: hsl(178, 100%, 50%);
+        }
+
+        .content {
+          color: hsl(215, 51%, 70%);
+          font-weight: 300;
+          margin-bottom: 20px;
+        }
+
+        .num {
+          display: flex;
+          justify-content: space-between;
+          margin: 10px 0;
+
+          .eth {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .eth-icon img {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 8px;
+            }
+
+            .eth-count {
+              color: hsl(178, 100%, 50%);
+              font-size: 16px;
+            }
+          }
+
+          .date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .date-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 8px;
+            }
+
+            .date-text {
+              color: hsl(215, 51%, 70%);
+              font-size: 16px;
+            }
+          }
+        }
+
+        .line {
+          border: 1px solid hsl(215, 32%, 27%);
+          margin: 20px 0;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+
+          .user-pic img {
+            width: 35px;
+            height: 35px;
+            border: 1px solid hsl(0, 0%, 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+          }
+
+          .creation {
+            color: hsl(215, 51%, 70%);
+            font-weight: 400;
+            margin: 0 5px 0 15px;
+            font-size: 16px;
+          }
+
+          .username {
+            color: hsl(0, 0%, 100%);
+            font-size: 16px;
+            cursor: pointer;
+          }
+          .username:hover {
+            color: hsl(178, 100%, 50%);
+          }
+        }
+      }
+
+      .attribution {
+        position: absolute;
+        font-size: 11px;
+        text-align: center;
+        bottom: 0;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card">
+      <section class="pic">
+        <picture>
+          <source
+            media="(max-width:650px)"
+            srcset="./images/image-equilibrium.jpg"
+          />
+          <img src="./images/image-equilibrium.jpg" alt="pic" />
+        </picture>
+
+        <div class="overlay">
+          <img src="./images/icon-view.svg" alt="icon">
+        </div>
+      </section>
+
+      <p class="title">Equilibrium #3429</p>
+
+      <p class="content">
+        Our Equilibrium collection promotes balance and calm.
+      </p>
+
+      <section class="num">
+        <seciton class="eth">
+          <figure class="eth-icon">
+            <img src="./images/icon-ethereum.svg" alt="icon" />
+          </figure>
+          <p class="eth-count">0.041 ETH</p>
+        </seciton>
+
+        <section class="date">
+          <figure class="date-icon">
+            <img src="./images/icon-clock.svg" alt="icon" />
+          </figure>
+          <p class="date-text">3 days left</p>
+        </section>
+      </section>
+
+      <hr class="line" />
+
+      <section class="user">
+        <picture class="user-pic">
+          <source
+            media="(max-width:50px)"
+            srcset="./images/image-equilibrium.jpg"
+          />
+          <img src="./images/image-avatar.png" alt="user" />
+        </picture>
+
+        <p class="creation">Creation of</p>
+        <p class="username">Jules Wyvern</p>
+      </section>
+    </article>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
